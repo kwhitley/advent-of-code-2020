@@ -4,7 +4,7 @@ const oldPolicy = ({ a, b, target, password }) => {
 }
 
 const newPolicy = ({ a, b, target, password }) =>
-  ((password[a - 1] === target) + (password[b - 1] === target)) === 1
+  (password[a - 1] === target) ^ (password[b - 1] === target)
 
 const validPasswords = (passwords, policy) =>
   passwords.reduce((acc, entry) =>
