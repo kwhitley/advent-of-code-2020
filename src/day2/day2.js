@@ -8,7 +8,7 @@ const newPolicy = ({ a, b, target, password }) =>
 
 const validPasswords = (passwords, policy) =>
   passwords.reduce((acc, entry) =>
-    acc += policy(entry.match(/^(?<a>\d+)-(?<b>\d+)\s+(?<target>\w+).*?(?<password>\w+)$/).groups) ? 1 : 0
+    acc += policy(entry.match(/^(?<a>\d+)-(?<b>\d+)\s+(?<target>\w+).*?(?<password>\w+)$/).groups)
   , 0)
 
 module.exports = {
