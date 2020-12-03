@@ -1,6 +1,6 @@
 const oldPolicy = ({ a, b, target, password }) => {
   const matches = password.replace(new RegExp(`[^${target}]`, 'g'), '').length
-  return matches >= +a && matches <= +b
+  return matches >= a && matches <= b
 }
 
 const newPolicy = ({ a, b, target, password }) =>
