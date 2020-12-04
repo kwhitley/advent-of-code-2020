@@ -10,10 +10,16 @@ const required_fields = [
   ['pid', v => v.match(/^\d{9}$/)],
 ]
 
-const checkPassports = (passports, validation = false) => passports.reduce((valid, passport) => {
-  const fields = passport.split(/\s/).map(entry => entry.split(':'))
-  return valid += required_fields.every(([field, validate]) => fields.find(([type, value]) => type === field && (!validation || validate(value))))
-}, 0)
+const checkPassports = (passports, validation = false) =>
+  passports.reduce((valid, passport) => {
+    return valid += required_fields.every(
+      ([field, validate]) =>
+        passport
+          .split(/\s/)
+          .map(entry => entry.split(':'))
+          .find(([type, value]) => type === field && (!validation || validate(value))
+      ))
+  }, 0)
 
 module.exports = {
   checkPassports,
