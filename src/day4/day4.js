@@ -1,9 +1,9 @@
 const required_fields = [
-  ['byr', v => v >= 1920 && v <= 2002],
-  ['iyr', v => v >= 2010 && v <= 2020],
-  ['eyr', v => v >= 2020 && v <= 2030],
-  ['hgt', (v, num = parseInt(v)) => (v.endsWith('cm') && num >= 150 && num <= 193) ||
-               (v.endsWith('in') && num >= 59 && num <= 76)],
+  ['byr', v => 1920 <= v & v <= 2002],
+  ['iyr', v => 2010 <= v & v <= 2020],
+  ['eyr', v => 2020 <= v & v <= 2030],
+  ['hgt', (v, num = parseInt(v)) => (v.endsWith('cm') && 150 <= num & num <= 193) ||
+               (v.endsWith('in') && 59 <= num & num <= 76)],
   ['hcl', v => v.match(/^#[\da-f]{6}$/)],
   ['ecl', v => `amb blu brn gry grn hzl oth`.split(' ').includes(v)],
   ['pid', v => v.match(/^\d{9}$/)],
